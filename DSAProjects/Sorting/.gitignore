@@ -20,3 +20,7 @@
 /SegregreateTwoTypesOfElements.class
 /SelectionSort.class
 /ShellSort.class
+/SortArrayBasedOnFrequency.class
+/SortArrayBasedOnFrequency$MyComparator.class
+/RemoveDuplicateElementFromSortedArray.class
+/SquareSortedArrayAndSortIt.class

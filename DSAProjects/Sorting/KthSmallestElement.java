@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class KthSmallestElement {
 
 	public static void main(String...strings) {
-		int a[]= {10,5,30,1,2};
-		int k=3;
+		int a[]= {7 ,10 ,4 ,20 ,15};
+		int k=4;
 		//2nd smallest element.
 		smallest(a,a.length,k);
 		smallestUsingLaumutoPartition(a,a.length,k);
