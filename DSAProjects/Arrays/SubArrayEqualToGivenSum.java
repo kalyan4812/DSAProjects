@@ -16,7 +16,7 @@ public class SubArrayEqualToGivenSum {
 
 	}
 
-	//O(n) ,O(n)-space works for -ve also.
+	// O(n) ,O(n)-space works for -ve also.
 	private static void fun3(int[] a, int n, int sum) {
 		int e = 0, curr_sum = 0;
 		Map<Integer, Integer> map = new HashMap<>();
@@ -25,12 +25,13 @@ public class SubArrayEqualToGivenSum {
 			if (curr_sum == sum) {
 				System.out.println(" 0  to " + e);
 			}
+			if (!map.containsKey(curr_sum)) {
+				map.put(curr_sum, e);
+			}
 			if (map.containsKey(curr_sum - sum)) {
 				int index = map.get(curr_sum - sum);
 				System.out.println(index + 1 + " to " + e);
 			}
-
-			map.put(curr_sum, e);
 
 			e++;
 		}

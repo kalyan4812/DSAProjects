@@ -15,10 +15,37 @@ public class A8_LongestSubstringWithDistinctCharacters {
 		fun3(s,s.length());
 		
 		fun4(s,s.length());
+		
+		
+		fun5(s,s.length());
 	}
 
 	
 	
+	//O(N),O(N)-space
+	private static void fun5(String s, int n) {
+		Map<Character,Integer> h=new HashMap<>();
+		int maxlen=0,st=0,e=0;
+		
+		while(e<n) {
+			char c=s.charAt(e);
+			
+			
+			if(h.containsKey(c)) {
+				st=Math.max(st, h.get(c)+1);
+			}
+			h.put(c,e);
+			
+			maxlen=Math.max(maxlen, e-st+1);
+			e++;
+		}
+		
+		System.out.println(maxlen);
+		
+	}
+
+
+
 	//O(N),O(N)-space
 	private static void fun4(String s, int n) {
 		

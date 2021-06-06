@@ -1,5 +1,6 @@
 package Arrays;
 
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -10,9 +11,34 @@ public class MaximunElementInSubArraysOfSizeK {
 		int k = 3;
 		fun(a, a.length, k);
 		fun2(a,a.length,k);
+		
+		System.out.println();
+		fun3(a,a.length,k);
 	}
 
-	//O(n),O(n)-space
+	
+	//O(N),O(K)-space.
+	private static void fun3(int[] a, int n, int k) {
+
+		int s=0,e=0;
+		ArrayList<Integer> al=new ArrayList<>();
+		while(e<n) {
+			while(!al.isEmpty()&& al.get(al.size()-1)<a[e]) {
+				al.remove(al.size()-1);
+			}
+			al.add(a[e]);
+			if(e-s+1==k) {
+				System.out.print(al.get(0)+" ");
+				if(a[s]==al.get(0)) {
+					al.remove(0);
+				}
+				s++;
+			}
+			e++;
+		}
+	}
+
+	//O(n),O(k)-space
 	private static void fun2(int[] a, int n, int k) {
 		Deque<Integer> dq=new LinkedList<>();
 		for(int i=0;i<k;i++) {
@@ -38,24 +64,33 @@ public class MaximunElementInSubArraysOfSizeK {
 	}
 
 	// O(n*k)
+	
+	// things to note for sorted array:you go exactly once into while loop
+	//for reverse sorted you wont got to while loop.
+	//for random one you go only sometimes into while loop
+	//so overll complexity is improved.
 	private static void fun(int[] a, int n, int k) {
 
 		int max = Integer.MIN_VALUE;
 
-		for (int i = 0; i < k; i++) {
-			max = Math.max(max, a[i]);
-
-		}
-
-		for (int i = k; i < n - k + 1; i++) {
-			int curr_max = a[i];
-			for (int j = i + 1; j < k + i; j++) {
-				curr_max = Math.max(curr_max, a[j]);
+		int s=0,e=0;
+		while(e<n) {
+			max=Math.max(max, a[e]);
+			if(e-s+1==k) {
+				System.out.print(max+" ");
+				if(a[s]!=max) {
+					s++;
+				}
+				else {
+					max=Integer.MIN_VALUE;
+					for(int p=s+1;p<s+3;p++) {
+						max=Math.max(max, a[p]);
+					}
+					s++;
+				}
 			}
-			max = Math.max(max, curr_max);
+			e++;
 		}
-
-		System.out.println(max);
-
+		System.out.println();
 	}
 }
