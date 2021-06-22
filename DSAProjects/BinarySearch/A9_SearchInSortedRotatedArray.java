@@ -84,12 +84,13 @@ public class A9_SearchInSortedRotatedArray {
 			}
 
 			// left half sorted
-			else if (a[l] < a[m]) {
+			else if (a[l] <=a[m]) {
 				if (x >= a[l] && x < a[m]) {
 					h = m - 1;
 				} else {
 					l = m + 1;
 				}
+				
 			}
 
 			// right half sorted.

@@ -13,6 +13,30 @@ public class FindDuplicateAndMissingValue {
 		
 		int [] c= {2,6,4,4,3,2,2};
 		fun2(c,c.length,1);
+		
+		System.out.println();
+		int [] d= {4,3,4,5,1};
+		fun3(d,d.length);
+	}
+
+	//O(N)
+	private static void fun3(int[] a, int n) {
+		int p=0,b=0;
+		for(int i=0;i<n;i++) {
+			if(a[Math.abs(a[i])-1]<0) {
+				p=Math.abs(a[i]);
+			}else {
+			a[Math.abs(a[i])-1]=-a[Math.abs(a[i])-1];
+			}
+		}
+		for(int i=0;i<n;i++) {
+			if(a[i]>0) {
+				b=i+1;
+				break;
+			}
+		}
+		System.out.println("Missing Value :"+b+" "+"Duplicate Value : "+p);	
+		
 	}
 
 	//O(N),O(N)-space
