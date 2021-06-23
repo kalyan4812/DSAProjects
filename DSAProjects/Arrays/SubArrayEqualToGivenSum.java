@@ -25,7 +25,7 @@ public class SubArrayEqualToGivenSum {
 			if (curr_sum == sum) {
 				System.out.println(" 0  to " + e);
 			}
-			if (!map.containsKey(curr_sum)) {
+			if (!map.containsKey(curr_sum)) { // this condition gives longest sub array.
 				map.put(curr_sum, e);
 			}
 			if (map.containsKey(curr_sum - sum)) {

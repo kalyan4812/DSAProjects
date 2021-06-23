@@ -31,7 +31,7 @@ public class CheckPairForSum {
 		
 	}
 
-	//O(nlogn)
+	//O(nlogn)-only for sorted condition.
 	private static void checkSum(int[] a, int gsum) {
 		Arrays.sort(a);
 		int s=0,e=a.length-1;
