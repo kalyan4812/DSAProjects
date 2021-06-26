@@ -27,8 +27,8 @@ public class A6_SortAnArrayUsingRecursion {
 		if (n == 1)
 			return;
 
-		int temp = al.get(0);
-		al.remove(0);
+		int temp = al.get(al.size()-1);
+		al.remove(al.size()-1);
 
 		sort(al);
 
