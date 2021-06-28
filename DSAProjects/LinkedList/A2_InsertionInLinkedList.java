@@ -8,7 +8,7 @@ public class A2_InsertionInLinkedList {
 		head = insertAtStart(10, head);
 		head = insertAtStart(20, head);
 		head = insertAtStart(30, head);
-		head = insertAtStart(40, head); //40 30 20 10
+		head = insertAtStart(40, head); // 40 30 20 10
 
 		head = insertAtPosition(50, head, 2); // 40 50 30 20 10
 		printList(head);
@@ -16,20 +16,49 @@ public class A2_InsertionInLinkedList {
 		System.out.println();
 		head = insertAtPosition(100, head, 3); // 40 50 100 30 20 10
 		printList(head);
-		
-		
+
 		System.out.println();
 		head = insertAtPosition(120, head, 1); // 120 40 50 100 30 20 10
 		printList(head);
-		
+
 		System.out.println();
 		head = insertAtPosition(140, head, 8); // 120 40 50 100 30 20 10 140
 		printList(head);
-		
+
 		System.out.println();
-		head = insertAtPosition(160, head, 10); // 120 40 50 100 30 20 10 140 (cant be inserted).
+		head = insertAtPosition(160, head, 10); // 120 40 50 100 30 20 10 140 (can't be inserted).
 		printList(head);
+
+		System.out.println();
+		head = insertAtPositionRecursively(55, head, 9); // 120 40 50 100 30 20 10 140 55
+		printList(head);
+	}
+
+	// O(N),O(N)-space.
+	private static Node insertAtPositionRecursively(int x, Node head, int pos) {
+		if (pos < 1)
+			return head;
 		
+		if (head == null && pos > 0)
+			return head;
+		
+		
+		if(head==null && pos==1) {
+			Node d = new Node(x, null);
+			return d;
+		}
+
+		
+		if (pos == 1) {
+			Node d = new Node(x, null);
+			d.next = head;
+			head = d;
+
+		}
+
+		head.next = insertAtPositionRecursively(x, head.next, pos - 1);
+
+		return head;
 	}
 
 	// O(N)
@@ -47,7 +76,7 @@ public class A2_InsertionInLinkedList {
 			return new Node(data, null);
 		}
 		Node x = new Node(data, head);
-		//x.next=head;
+		// x.next=head;
 		head = x;
 		return head;
 	}
@@ -69,7 +98,7 @@ public class A2_InsertionInLinkedList {
 		} else {
 			Node curr = head;
 			int count = 1;
-			while (count < pos-1 && curr != null) {
+			while (count < pos - 1 && curr != null) {
 				curr = curr.next;
 				count++;
 			}

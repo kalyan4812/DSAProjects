@@ -25,6 +25,11 @@ public class A4_DeletionInLinkedList {
 
 		head = deleteFromPosition(head, n); // for n==2 -> 30
 		printList(head);
+		System.out.println();
+		
+		int m = sc.nextInt();
+		head = deleteFromPositionRecursively(head, m); // for n==1 -> null
+		printList(head);
 
 	}
 
@@ -49,6 +54,18 @@ public class A4_DeletionInLinkedList {
 		}
 		curr.next = curr.next.next;
 
+		return head;
+	}
+	
+	//O(n),O(N)-space.
+	private static Node deleteFromPositionRecursively( Node head, int pos) {
+	    if(pos<1) return head;
+	    if(head==null && pos>0) return head;
+	    
+	    if(pos==1) return head.next;
+	    
+	    head.next=deleteFromPositionRecursively(head.next,pos-1);
+	    
 		return head;
 	}
 
