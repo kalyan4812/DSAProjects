@@ -13,3 +13,17 @@
 /B1_PrefixToPostfix.class
 /B2_ImplementTwoStacksInArray.class
 /B3_ImplementKStacksInArray.class
+/B4_NextGreaterToRight.class
+/B5_NextGreaterToLeft.class
+/B6_NextSmallerToRight.class
+/B7_NextSmallerToLeft.class
+/B8_StockSpan.class
+/B8_StockSpan$Pair.class
+/B9_MaximumAreaHistogram.class
+/B9_MaximumAreaHistogram$Pair.class
+/C1_MaxAreaRectangleInBinaryMatrix.class
+/C1_MaxAreaRectangleInBinaryMatrix$Pair.class
+/C2_RainWaterTrapping.class
+/C3_MinStack.class
+/C3_MinStackUsingSpace.class
+/C4_MinStackWIthoutSpace.class
