@@ -10,55 +10,90 @@ import Graphs.B1_ShortestPathInGraphUsingDijkstra.Node;
 
 public class B2_ShortestPathUsingBellmanFord {
 
-	public static final int INF = Integer.MAX_VALUE;
-	static int V = 4;
+
+	// works for negative edges.
 
 	public static void main(String... strings) {
 
-		int graph[][] = { { 0, 5, INF, 10 }, { INF, 0, 3, INF }, { INF, INF, 0, 1 }, { INF, INF, INF, 0 } };
-		floydWarshall(graph);
+		ArrayList<Node> adj = setUpGraph();
+
+		shortestPath(adj,  0);
 
 	}
 
-	//O(v3)
-	static void floydWarshall(int graph[][]) {
+	//O(VE)
+	private static void shortestPath(ArrayList<Node> adj,int s) {
+		int v=4;
+		int dist[]=new int[v]; // no of vertices should be passed not v.
+		Arrays.fill(dist, Integer.MAX_VALUE);
+		dist[s]=0;
+		
+	    for(int i=0;i<v-1;i++) {
+	    	for(Node node:adj) {
+	    		if(dist[node.u]+node.weight<dist[node.v]) {
+	    			dist[node.v]=dist[node.u]+node.weight;
+	    		}
+	    	}
+	    }
+	    
+	    boolean hasNegativeCycle=false;
+	    for(Node node:adj) {
+    		if(dist[node.u]+node.weight<dist[node.v]) {
+    		   System.out.println("Graph has negative cycle");
+    		   break;
+    		}
+    	}
+	    if(!hasNegativeCycle) {
+	    	for (int k : dist) {
+				
+					System.out.print(k + " ");
+				
+			}
+	    }
+	    
+	}
+
+//------------------------------------------------------------------------------------------------------------------------------------------------
+
+	private static ArrayList<Node> setUpGraph() {
+		int vertices = 4;
+
+		ArrayList<Node> adj = new ArrayList<>(vertices); // edge list no need of adj list.
 
 		
-		int dist[][] = new int[V][V];
-		int i, j, k;
+		addEdge(adj, 0, 1, 1);
+		addEdge(adj, 1, 3, 2);
+		addEdge(adj, 0, 2, 4);
+		addEdge(adj, 1, 2, -3);
+		addEdge(adj, 2, 3, 3);
 
-		for (i = 0; i < V; i++)
-			for (j = 0; j < V; j++)
-				dist[i][j] = graph[i][j];
-
-		for (k = 0; k < V; k++) {
-			// Pick all vertices as source one by one
-			for (i = 0; i < V; i++) {
-				// Pick all vertices as destination for the
-				// above picked source
-				for (j = 0; j < V; j++) {
-					// If vertex k is on the shortest path from
-					// i to j, then update the value of dist[i][j]
-					if (dist[i][k] + dist[k][j] < dist[i][j])
-						dist[i][j] = dist[i][k] + dist[k][j];
-				}
-			}
-		}
-
-		printSolution(dist);
+		return adj;
 	}
 
-	static void printSolution(int dist[][]) {
-		System.out.println("The following matrix shows the shortest " + "distances between every pair of vertices");
-		for (int i = 0; i < V; ++i) {
-			for (int j = 0; j < V; ++j) {
-				if (dist[i][j] == INF)
-					System.out.print("INF ");
-				else
-					System.out.print(dist[i][j] + "   ");
-			}
-			System.out.println();
+	// t(1)
+	private static void addEdge(ArrayList<Node> adj, int u, int v, int w) {
+
+		adj.add(new Node(u,v, w));
+		//adj.add(new Node(u,v, w));
+
+	}
+
+	static class Node  {
+		int u;
+		int v;
+		int weight;
+
+		Node() {
+
 		}
+
+		Node(int u,int val, int weight) {
+			this.u=u;
+			this.v = val;
+			this.weight = weight;
+		}
+
+		
 	}
 
 }
