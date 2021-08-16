@@ -2,11 +2,7 @@ package Arrays;
 
 import java.util.Arrays;
 import java.util.HashSet;
-<<<<<<< HEAD
-//
-=======
 
->>>>>>> branch 'master' of https://github.com/kalyan4812/DSAProjects.git
 public class CheckPairForMultiply {
 
 	public static void main(String... strings) {
