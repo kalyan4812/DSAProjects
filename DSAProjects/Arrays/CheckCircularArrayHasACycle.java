@@ -1,9 +1,5 @@
 package Arrays;
-<<<<<<< HEAD
-//
-=======
 
->>>>>>> branch 'master' of https://github.com/kalyan4812/DSAProjects.git
 public class CheckCircularArrayHasACycle {
 
 	public static void main(String... strings) {
