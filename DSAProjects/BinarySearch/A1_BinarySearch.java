@@ -14,10 +14,7 @@ public class A1_BinarySearch {
 		recursiveBs(a,0,a.length-1,ele);
 	}
 
-<<<<<<< HEAD
-=======
-	
->>>>>>> branch 'master' of https://github.com/kalyan4812/DSAProjects.git
+
 	//O(logn)+ space for storing functions in stack.
 	private static void recursiveBs(int[] a,int low,int high, int ele) {
 		
