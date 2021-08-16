@@ -8,7 +8,10 @@ public class A8_FindAverageOfSubArraysOfSizeK {
 		fun(a, a.length, 5);
 		// 2.2, 2.8, 2.4, 3.6, 2.8
 	}
+<<<<<<< HEAD
 	///
+=======
+>>>>>>> branch 'master' of https://github.com/kalyan4812/DSAProjects.git
 
 	// O(N)
 	private static void fun(int[] a, int n, int k) {

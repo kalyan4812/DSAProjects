@@ -18,6 +18,7 @@
 /B8_PrintNbitBinaryNumbers.class
 /B9_JosephusProblem.class
 /C1_MaxCutsOfRope.class
+<<<<<<< HEAD
 /C2_PrintPattern.class
 /C3_NumberOfBinaryStringsWithoutConsecutiveones.class
 /C4_PartyProblem.class
@@ -25,3 +26,5 @@
 /C6_DicePath.class
 /C7_GivenNPrintWholeNumbersInLexicographicOrder.class
 /C8_PrintPermuatations.class
+=======
+>>>>>>> branch 'master' of https://github.com/kalyan4812/DSAProjects.git
