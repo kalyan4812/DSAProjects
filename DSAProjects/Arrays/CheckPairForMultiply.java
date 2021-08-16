@@ -2,7 +2,7 @@ package Arrays;
 
 import java.util.Arrays;
 import java.util.HashSet;
-
+//
 public class CheckPairForMultiply {
 
 	public static void main(String... strings) {
