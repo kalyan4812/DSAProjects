@@ -1,26 +1,26 @@
 package DynamicProgramming;
 
-public class C7_MinDeletionInStringToMakePalindrome {
+public class D1_SequencePatternMatching {
 
 	public static void main(String... strings) {
 
-		String s1 = "agbcba";
-		
+		String s1 = "axy";
+		String s2 = "adxcpy";
 
-		
-		// idea: make a new string s2 which reverse of s1 ,and find lcs.
-		// ans is sl.length-lcs.
+		// check whether s1 is subsequence of s2.
 
-		String s2=new StringBuilder(s1).reverse().toString();
-		int k=tabulationSol(s1, s2, s1.length(), s2.length());
-         System.out.print(k);
+		boolean c = tabulationSol(s1, s2, s1.length(), s2.length());
+		System.out.println(c);
+
+		// idea: lcs of s1,s2 should be equal to s1.
+
 	}
 
-	private static int tabulationSol(String s1, String s2, int m, int n) {
-		
-		return m-lcs(s1,s2,m,n); // m-lps.
+	private static boolean tabulationSol(String s1, String s2, int m, int n) {
+
+		return (m == lcs(s1, s2, m, n));
 	}
-	
+
 	private static int lcs(String s1, String s2, int m, int n) {
 		int dp[][] = new int[m + 1][n + 1];
 
@@ -44,6 +44,7 @@ public class C7_MinDeletionInStringToMakePalindrome {
 				}
 			}
 		}
+
 		return dp[m][n];
 	}
 }

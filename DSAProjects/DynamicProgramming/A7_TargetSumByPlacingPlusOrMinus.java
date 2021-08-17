@@ -10,6 +10,10 @@ public class A7_TargetSumByPlacingPlusOrMinus {
 
 		int b = tabulationSol(a, a.length, sum);
 		System.out.println(b);
+		
+		// idea: place all values with plus aside and values with minus aside,
+		// so sum=s1-s2.
+		// so check no of subsets with given diff.
 	}
 
 	private static int tabulationSol(int[] a, int n, int sum) {

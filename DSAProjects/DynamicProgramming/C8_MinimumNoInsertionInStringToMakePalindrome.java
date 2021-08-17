@@ -1,26 +1,22 @@
 package DynamicProgramming;
 
-public class C7_MinDeletionInStringToMakePalindrome {
+public class C8_MinimumNoInsertionInStringToMakePalindrome {
 
 	public static void main(String... strings) {
 
-		String s1 = "agbcba";
-		
+		String s1 = "aebcbda";
 
-		
-		// idea: make a new string s2 which reverse of s1 ,and find lcs.
-		// ans is sl.length-lcs.
-
-		String s2=new StringBuilder(s1).reverse().toString();
-		int k=tabulationSol(s1, s2, s1.length(), s2.length());
-         System.out.print(k);
+		String s2 = new StringBuilder(s1).reverse().toString();
+		int k = tabulationSol(s1, s2, s1.length(), s2.length());
+		System.out.print(k);
 	}
 
+	// same as Minimum deletions.
 	private static int tabulationSol(String s1, String s2, int m, int n) {
-		
-		return m-lcs(s1,s2,m,n); // m-lps.
+
+		return m - lcs(s1, s2, m, n); // m-lps.
 	}
-	
+
 	private static int lcs(String s1, String s2, int m, int n) {
 		int dp[][] = new int[m + 1][n + 1];
 

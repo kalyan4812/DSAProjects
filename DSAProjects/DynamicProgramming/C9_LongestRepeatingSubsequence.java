@@ -1,26 +1,22 @@
 package DynamicProgramming;
 
-public class C7_MinDeletionInStringToMakePalindrome {
+public class C9_LongestRepeatingSubsequence {
 
 	public static void main(String... strings) {
 
-		String s1 = "agbcba";
-		
+		String s1 = "aabebcdd";
 
-		
-		// idea: make a new string s2 which reverse of s1 ,and find lcs.
-		// ans is sl.length-lcs.
+		// here abd is the longest repeating subsequence.
 
-		String s2=new StringBuilder(s1).reverse().toString();
-		int k=tabulationSol(s1, s2, s1.length(), s2.length());
-         System.out.print(k);
+		int k = tabulationSol(s1, s1, s1.length(), s1.length());
+		System.out.print(k);
 	}
 
 	private static int tabulationSol(String s1, String s2, int m, int n) {
-		
-		return m-lcs(s1,s2,m,n); // m-lps.
+
+		return lcs(s1, s2, m, n);
 	}
-	
+
 	private static int lcs(String s1, String s2, int m, int n) {
 		int dp[][] = new int[m + 1][n + 1];
 
@@ -36,7 +32,7 @@ public class C7_MinDeletionInStringToMakePalindrome {
 		// conversion of recursion to iterative.
 		for (int i = 1; i < m + 1; i++) {
 			for (int j = 1; j < n + 1; j++) {
-				if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+				if (s1.charAt(i - 1) == s2.charAt(j - 1) && i != j) { // only change i!=j.
 					dp[i][j] = 1 + dp[i - 1][j - 1];
 
 				} else {
@@ -44,6 +40,26 @@ public class C7_MinDeletionInStringToMakePalindrome {
 				}
 			}
 		}
+
+		String lrs = "";
+		int i = m, j = n;
+		while (i > 0 && j > 0) {
+			if (s1.charAt(i - 1) == s2.charAt(j - 1) && i != j) {
+
+				lrs = s1.charAt(i - 1) + lrs;
+				i--;
+				j--;
+			} else {
+				if (dp[i][j - 1] > dp[i - 1][j]) {
+					j--;
+				} else if (dp[i][j - 1] < dp[i - 1][j]) {
+					i--;
+				} else {
+					i--;
+				}
+			}
+		}
+		System.out.println(lrs);
 		return dp[m][n];
 	}
 }
