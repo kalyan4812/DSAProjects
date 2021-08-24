@@ -17,15 +17,19 @@ public class A3_EqulaSumPartition {
 			sum = sum + k;
 		}
 
-		boolean b = tabulationSol(a, a.length, sum);
+		boolean b =false;
+		if (sum % 2 != 0) {
+			b= false;
+		}
+		else {
+			b= tabulationSol(a, a.length, sum/2);
+		}
 		System.out.println(b);
 	}
 
 	// O(sum*n)
 	private static boolean tabulationSol(int[] a, int n, int sum) {
-		if (sum % 2 != 0) {
-			return false;
-		}
+		
 		boolean dp[][] = new boolean[n + 1][sum + 1];
 
 		// Initialization.

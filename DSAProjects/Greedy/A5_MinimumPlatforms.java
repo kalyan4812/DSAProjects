@@ -10,10 +10,6 @@ public class A5_MinimumPlatforms {
 
 		int k = minPlatforms(start, end, start.length);
 		System.out.println(k);
-		
-		
-		
-		
 
 	}
 

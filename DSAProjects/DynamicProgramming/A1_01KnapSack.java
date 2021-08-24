@@ -6,9 +6,13 @@ public class A1_01KnapSack {
 
 	public static void main(String... strings) {
 
-		int wt[] = { 1, 3, 4, 5 };
-		int val[] = { 1, 4, 5, 7 };
-		int cap = 7;
+		//int wt[] = { 1, 3, 4, 5 };
+		//int val[] = { 1, 4, 5, 7 };
+		//int cap = 7;
+		
+		int wt[] = { 4,8,5,3 };
+		int val[] = { 5,12,8,1 };
+		int cap = 10;
 
 		int a = recursiveSol(wt, val, cap, wt.length);
 		System.out.println(a);

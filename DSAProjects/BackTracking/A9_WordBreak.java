@@ -9,7 +9,7 @@ public class A9_WordBreak {
 
 		String str = "heaven";
 		
-		ArrayList<String> al = new ArrayList<>(Arrays.asList("h", "a", "ab", "ven"));
+		ArrayList<String> al = new ArrayList<>(Arrays.asList("he", "a", "ab", "ven"));
 
 		boolean b = wordBreak(0, 0, str, str.length(), al);
 		System.out.print(b);
