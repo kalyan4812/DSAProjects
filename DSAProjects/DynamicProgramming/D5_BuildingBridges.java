@@ -17,13 +17,34 @@ public class D5_BuildingBridges {
 		int z = getAns(a, a.length);
 		System.out.println(z);
 
-		
-		// other question can be longest chain of pairs,given  (a,b) & (c,d) ... where a<b ,c<d find longest chain
+		// other question can be longest chain of pairs,given (a,b) & (c,d) ... where
+		// a<b ,c<d find longest chain
 		// where c<d.
 		// idea: sort array based on first values,if first values are same then sort
 		// based on second values. now,lis is the answer.
 		// or it is same as activity selection problem.
-		
+
+		int x = longestchain(a, a.length);
+		System.out.println(x);
+
+	}
+
+	private static int longestchain(int[][] a, int n) {
+		Arrays.sort(a, (c, d) -> c[0] - d[0]);
+
+		int[] dp = new int[n];
+		Arrays.fill(dp, 1);
+		int max = 1;
+
+		for (int i = 1; i < n; i++) {
+			for (int j = 0; j < i; j++) {
+				if (a[j][1] < a[i][0])
+					dp[i] = Math.max(dp[i], dp[j] + 1);
+			}
+			max = Math.max(dp[i], max);
+		}
+
+		return max;
 	}
 
 	/*

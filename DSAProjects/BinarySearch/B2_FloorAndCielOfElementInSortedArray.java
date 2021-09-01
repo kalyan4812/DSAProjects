@@ -3,8 +3,8 @@ package BinarySearch;
 public class B2_FloorAndCielOfElementInSortedArray {
 
 	public static void main(String...strings) {
-		int a[]= {1,2,3,4,8,10,12,14};
-		int x=5;
+		int a[]= {3, 5, 10, 15, 17, 12, 9};
+		int x=10;
 		
 		int k=floor(a,x);
 		System.out.println(k);

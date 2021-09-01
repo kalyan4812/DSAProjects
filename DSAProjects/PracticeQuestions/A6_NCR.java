@@ -6,6 +6,21 @@ public class A6_NCR {
 
 		int ans = nCr(4, 2);
 		System.out.println(ans);
+		
+		
+		int ans2 = nPr(4, 2);
+		System.out.println(ans2);
+	}
+
+	//O(N),O(1)
+	private static int nPr(int n, int r) {
+		
+		int p=1;
+		for(int i=0;i<r;i++) {
+			p=p*(n-i);
+		}
+		
+		return p;
 	}
 
 	static int mod = 1000000000 + 7;
@@ -26,5 +41,6 @@ public class A6_NCR {
 
 		return dp[r];
 
+		
 	}
 }

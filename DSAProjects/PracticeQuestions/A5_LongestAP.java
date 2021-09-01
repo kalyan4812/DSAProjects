@@ -8,7 +8,7 @@ import java.util.List;
 public class A5_LongestAP {
 
 	public static void main(String... strings) {
-		int arr[] = { 15, 8, 10, 20, 17, 13, 5 };
+		int arr[] = { 2, 4, 6, 8, 10 };
 
 		// print subsequences which form ap.
 
@@ -19,7 +19,12 @@ public class A5_LongestAP {
 			al.add(i);
 		}
 		ArrayList<ArrayList<Integer>> ans = go(al);
-		System.out.println(ans.toString());
+		HashSet<ArrayList<Integer>> hs = new HashSet<>();
+		for (ArrayList<Integer> h : ans) {
+			if (h.size() >= 3)
+				hs.add(h);
+		}
+		System.out.println(hs.toString() + "\n" + hs.size());
 
 	}
 
@@ -49,24 +54,27 @@ public class A5_LongestAP {
 
 		ArrayList<ArrayList<Integer>> rem = go(al);
 
-		int i = 0;
-		for (ArrayList<Integer> a : rem) {
+		ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
 
+		for (ArrayList<Integer> am : rem) {
+			ArrayList<Integer> a = new ArrayList<>(am);
 			if (a.size() >= 2 && ((a.get(0) - a.get(1)) == (a.get(a.size() - 1) - p))) {
-				rem.get(i).add(p);
+
+				a.add(p);
+				ans.add(new ArrayList<>(a));
 
 			} else if (a.size() == 1) {
-				rem.get(i).add(p);
 
-			} else {
-				rem.removeAll(rem.get(i));
+				a.add(p);
+				ans.add(new ArrayList<>(a));
+
 			}
-			i++;
 
 		}
-		return rem;
+		rem.add(new ArrayList<>(Arrays.asList(p)));
+		ans.addAll(rem);
+		return ans;
 
 	}
 
-	
 }

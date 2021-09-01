@@ -3,7 +3,7 @@ package DynamicProgramming;
 public class B3_MinimumNoOfCoins_CoinChange {
 	public static void main(String... strings) {
 
-		int coin[] = { 1, 2, 3 }; // item array.
+		int coin[] = { 1,2,3}; // item array.
 
 		int sum = 5; // capacity.
 

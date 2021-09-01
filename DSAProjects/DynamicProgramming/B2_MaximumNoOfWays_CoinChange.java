@@ -51,7 +51,7 @@ public class B2_MaximumNoOfWays_CoinChange {
 		}
 		return dp[sum];
 	}
-
+ 
 	private static int tabulationSol(int[] a, int n, int sum) {
 		int dp[][] = new int[n + 1][sum + 1];
 

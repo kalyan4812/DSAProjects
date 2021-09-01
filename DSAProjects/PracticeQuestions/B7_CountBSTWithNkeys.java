@@ -11,8 +11,7 @@ public class B7_CountBSTWithNkeys {
 		/// or using catalan number formula : 1/n+1 *(2nCn).
 	}
 
-	
-	//O(n2)
+	// O(n2)
 	private static int dpSol(int n) {
 		int dp[] = new int[n + 1];
 		dp[0] = 1;
@@ -44,5 +43,28 @@ public class B7_CountBSTWithNkeys {
 		}
 
 		return ans;
+	}
+
+// count balanced binary tree for given height.	
+	static long mod = 1000000000 + 7;
+
+	static long countBT(int h) {
+
+		long dp[] = new long[h + 1];
+		dp[0] = 1;
+
+		if (h >= 1)
+			dp[1] = 1;
+
+		if (h >= 2)
+			dp[2] = 3;
+
+		for (int i = 3; i <= h; i++) {
+
+			dp[i] = dp[i - 1] * (2 * dp[i - 2] + dp[i - 1]);
+			dp[i] = dp[i] % mod;
+		}
+
+		return dp[h] % mod;
 	}
 }
