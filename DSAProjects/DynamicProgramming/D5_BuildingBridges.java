@@ -3,7 +3,7 @@ package DynamicProgramming;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import Sorting.MergeOverlappingIntervals.MyComparator;
+import Sorting.B9_MergeOverlappingIntervals.MyComparator;
 
 public class D5_BuildingBridges {
 
