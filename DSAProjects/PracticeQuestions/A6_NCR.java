@@ -4,7 +4,7 @@ public class A6_NCR {
 
 	public static void main(String... strings) {
 
-		int ans = nCr(4, 2);
+		int ans = nCr(31, 10);
 		System.out.println(ans);
 		
 		

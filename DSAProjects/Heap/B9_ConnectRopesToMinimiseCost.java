@@ -8,7 +8,7 @@ import Heap.B8_KClosestPointsToOrigin.Pair;
 public class B9_ConnectRopesToMinimiseCost {
 
 	public static void main(String...strings) {
-		int a[]= {1,2,3,4,5}; // length of ropes.
+		int a[]= {3,2,6,4}; // length of ropes.
 		
 		int mincost=getMinCost(a);
 		System.out.print(mincost);

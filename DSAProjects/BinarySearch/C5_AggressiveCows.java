@@ -1,5 +1,7 @@
 package BinarySearch;
 
+import java.util.Arrays;
+
 public class C5_AggressiveCows {
 
 	public static void main(String... strings) {
@@ -13,6 +15,7 @@ public class C5_AggressiveCows {
 
 	// O(nlogn)
 	private static int fun(int[] a, int cows) {
+		Arrays.sort(a);
 		int n = a.length;
 		int l = 1, h = a[n - 1] - a[0];
 		int res = -1;

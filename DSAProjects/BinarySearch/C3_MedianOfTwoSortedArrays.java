@@ -49,4 +49,49 @@ public class C3_MedianOfTwoSortedArrays {
 
 		return -1;
 	}
+
+	public static double find(int[] a, int[] b) {
+
+		if (a.length < b.length) {
+			int l = 0, h = a.length - 1; // on leetcode it need h=a.length why?
+			int te = a.length + b.length;
+
+			while (l <= h) {
+
+				int aleft = l + (h - l) / 2;
+
+				int bleft = (te + 1) / 2 - aleft;
+
+				int alm1 = (aleft == 0) ? Integer.MIN_VALUE : a[aleft - 1];
+				int al = (aleft == a.length) ? Integer.MAX_VALUE : a[aleft];
+
+				int blm1 = (bleft == 0) ? Integer.MIN_VALUE : b[bleft - 1];
+				int bl = (bleft == b.length) ? Integer.MAX_VALUE : b[bleft];
+
+				// valid segregation.
+				if (alm1 <= bl && blm1 <= al) {
+
+					int lmax = Math.max(alm1, blm1);
+					int rmin = Math.min(al, bl);
+
+					double median = 0.0;
+					if (te % 2 == 0)
+						median = (lmax + rmin) / 2.0;
+					else
+						median = (double) lmax;
+
+					return median;
+				} else if (alm1 > bl) {
+					h = aleft - 1;
+				} else if (blm1 > al) {
+					l = aleft + 1;
+				}
+
+			}
+			return -1;
+		} else {
+			return find(b, a);
+		}
+
+	}
 }
