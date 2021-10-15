@@ -15,20 +15,21 @@ public class A4_RoatateMatrixBy90 {
 		transpose(a, n, m);
 		// now reverse columns.
 		for (int i = 0; i < n; i++) {
-			int l=0,h=n-1;
-			while(l<h) {
-				int temp=a[l][i];
-				a[l][i]=a[h][i];
-				a[h][i]=temp;
-				
+			// select a row i ,and reverse elements in that row.
+			int l = 0, h = n - 1;
+			while (l <= h) {
+				int temp = a[i][l];
+				a[i][l] = a[i][h];
+				a[i][h] = temp;
+
 				l++;
 				h--;
 			}
 		}
 		
-		display(a,n);
-		
-		
+
+		display(a, n);
+
 	}
 
 	private static void transpose(int[][] a, int n, int m) {
@@ -41,7 +42,7 @@ public class A4_RoatateMatrixBy90 {
 		}
 
 	}
-	
+
 	private static void display(int[][] a, int length) {
 		for (int k[] : a) {
 			for (int p : k) {

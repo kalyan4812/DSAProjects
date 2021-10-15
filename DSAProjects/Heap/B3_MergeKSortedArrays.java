@@ -57,6 +57,7 @@ public class B3_MergeKSortedArrays {
 			}
 
 			return 1;
+			// or return val-t.val;
 		}
 
 	}

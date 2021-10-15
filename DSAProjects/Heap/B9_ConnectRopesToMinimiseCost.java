@@ -28,6 +28,7 @@ public class B9_ConnectRopesToMinimiseCost {
 			cost=cost+x+y;
 			pq.add(x+y);
 		}
+	
 		return cost;
 	}
 }

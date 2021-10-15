@@ -8,6 +8,12 @@ public class A1_CheckAnagram {
 		boolean b=check(s1,s2);
 		System.out.print(b);
 	}
+	
+	// note 'p'-'a'='P'-'A'
+	// -->   'p'='P'+'a'-'A'
+	// ---> lowercase=uppercase+'a'-'A';
+	
+	
 
 	//O(N),t(256)-space
 	private static  boolean check(String s1, String s2) {

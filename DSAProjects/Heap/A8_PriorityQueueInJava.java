@@ -37,5 +37,8 @@ public class A8_PriorityQueueInJava {
 		System.out.println(maxpq.peek());
 		System.out.println(maxpq.toString());
 		
+		// add,remove---log(n).
+		
+		// peek-O(1).
 	}
 }
