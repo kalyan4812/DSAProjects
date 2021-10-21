@@ -44,9 +44,27 @@ public class G1_FirstMissingPositiveNumber {
 		  }
 		}
 		
+		
 		if(a[0]>0) {
 			return n;
 		}
+		
+		/* or
+		for(int i=0;i<n;i++){
+		    int index=Math.abs(a[i]);
+		    a[index-1]=-Math.abs(a[index-1]);
+		    
+		}
+		
+		for(int i=0;i<n;i++){
+		    if(a[i]>0){
+		        return i+1;
+		    }
+		    
+		    return n+1;
+		    
+		    
+		}*/
 		
 		return n+1;
 	}

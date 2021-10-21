@@ -33,7 +33,7 @@ public class E1_MatrixChainMultiplication {
 			return db[i][j];
 		}
 		int min = Integer.MAX_VALUE;
-		for (int k = j-1; k <= j - 1; k++) {
+		for (int k = i; k <= j - 1; k++) {
 
 			int tempans = ((db[i][k] != -1) ? db[i][k] : mcmMemozizie(a, i, k))
 					+ ((db[k + 1][j] != -1) ? db[k + 1][j] : mcmMemozizie(a, k + 1, j)) + a[i - 1] * a[k] * a[j];
@@ -47,11 +47,11 @@ public class E1_MatrixChainMultiplication {
 	
    // doubt why ,min1 should be inside in function.
 	private static int mcm(int[] a, int i, int j) {
-		if (i == j) {
+		if (i >= j) {
 			return 0;
 		}
 		int min1=Integer.MAX_VALUE;;
-		for (int k = j-1; k <= j - 1; k++) {
+		for (int k = i; k <= j - 1; k++) {
 			int tempans = mcm(a, i, k) + mcm(a, k + 1, j) + a[i - 1] * a[k] * a[j];
 			min1 = Math.min(tempans, min1);
 		}
