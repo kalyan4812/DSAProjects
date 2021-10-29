@@ -27,7 +27,7 @@ public class A4_DepthFirstSearch {
 		System.out.print(s+" ");
 		for (int k : adj.get(s)) {
 			if (!visited[k]) {
-				visited[k] = true;
+				//visited[k] = true; optional.
 				dfs(adj,k,visited);
 			}
 		}

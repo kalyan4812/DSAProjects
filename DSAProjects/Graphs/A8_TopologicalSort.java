@@ -6,6 +6,10 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class A8_TopologicalSort {
+
+	// permutations of vertices such that for every pair u-> v,u should come before v.
+	// that is dependents comes after thier dependencies.
+
 	public static void main(String... strings) {
 		ArrayList<ArrayList<Integer>> adj = setUpGraph();
 

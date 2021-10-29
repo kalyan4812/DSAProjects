@@ -14,7 +14,7 @@ public class A1_RepresentationOfGraph {
 	}
 
 	private static void setUpGraph() {
-		int vertices = 5;
+		int vertices = 4;
 
 		ArrayList<ArrayList<Integer>> adj = new ArrayList<>(vertices);
 

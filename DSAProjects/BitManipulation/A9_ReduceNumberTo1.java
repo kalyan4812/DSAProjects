@@ -8,6 +8,19 @@ public class A9_ReduceNumberTo1 {
 		// find  minimum no of operations.
 		int n=15;
 		minOperations(n);
+		System.out.println(fun(n));
+	}
+
+	private static int fun(int n) {
+		if(n==1) {
+			return 0;
+		}
+		if(n%2==0) {
+			return 1+fun(n/2);
+		}
+		
+		return 1+Math.min(fun(n+1), fun(n-1));
+		
 	}
 
 	private static void minOperations(int n) {
@@ -30,6 +43,9 @@ public class A9_ReduceNumberTo1 {
 	   
 	   System.out.println(res);
 	}
+	
+	
+	
 	
 	
 }

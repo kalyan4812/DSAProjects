@@ -24,6 +24,12 @@ public class B1_ShortestPathInGraphUsingDijkstra {
 		System.out.println();
 		
 		shortestPathUsingSet(adj,adj.size(),0);  // using tree set.
+		
+		
+		
+		System.out.println();
+		
+		shortestPathOtherWay(adj,adj.size(),0);
 
 	}
 	
@@ -101,6 +107,46 @@ public class B1_ShortestPathInGraphUsingDijkstra {
 
 //------------------------------------------------------------------------------------------------------------------------------------------------
 
+	private static void shortestPathOtherWay(ArrayList<ArrayList<Node>> adj, int vtces, int src) {
+		
+		
+		boolean vis[]=new boolean[vtces];
+	      PriorityQueue<Pair> pq=new PriorityQueue<>((c,d)->(c.wsf-d.wsf));
+	      pq.add(new Pair(src,0,0,""+src));
+	      
+	      while(!pq.isEmpty()){
+	        Pair p=pq.poll();
+	        if(vis[p.v]){
+	            continue;
+	        }
+	        vis[p.v]=true;
+	        System.out.println(p.v+" via "+p.psf+" @ "+p.wsf);
+	         for(Node e:adj.get(p.v)){
+	             if(!vis[e.val]){
+	                 pq.add(new Pair(e.val,e.weight,p.wsf+e.weight,p.psf+e.val));
+	             }
+	         }   
+	          
+	      }
+	}
+	
+	
+	
+	static class Pair{
+	       int v,wt,wsf;
+	       String psf;
+	       Pair(int v,int wt,int wsf,String psf){
+	           this.v=v;
+	           this.wt=wt;
+	           this.psf=psf;
+	           this.wsf=wsf;
+	       }
+	   }
+	
+	
+	
+//----------------------------------------------------------------------------------------------------------------------------	
+	
 	private static ArrayList<ArrayList<Node>> setUpGraph() {
 		int vertices = 4;
 

@@ -10,6 +10,10 @@ import Graphs.B2_ShortestPathUsingBellmanFord.Node;
 
 public class B4_MSTUsingPrimsAlgorithm {
 
+	
+	// MST : it is a tree type acyclic subgraph,and it is spanning means all vertices are included.
+	
+	
 	public static void main(String... strings) {
 
 		ArrayList<ArrayList<Node>> adj = setUpGraph();
@@ -19,6 +23,9 @@ public class B4_MSTUsingPrimsAlgorithm {
 		System.out.println();
 		
 		primsOptimized(adj,5);
+		
+		
+		primsAlgorithmOtherWay(adj,5);
 
 	}
 
@@ -102,6 +109,51 @@ public class B4_MSTUsingPrimsAlgorithm {
 		
 
 	}
+//----------------------------------------------------------------------------------------------------------------
+	
+	
+	static class Pair{
+	       
+	       int v,av,wt;
+	       Pair(int v,int av,int wt){
+	           this.v=v;
+	           this.av=av;
+	           this.wt=wt;
+	       }
+	   }
+	
+	
+	private static void primsAlgorithmOtherWay(ArrayList<ArrayList<Node>> adj, int vtces) {
+	
+	
+	
+		PriorityQueue<Pair> pq=new PriorityQueue<>((c,d)->(c.wt-d.wt));
+	     pq.add(new Pair(0,-1,0));
+	     boolean vis[]=new boolean[vtces];
+	     
+	     while(!pq.isEmpty()){
+	         Pair p=pq.poll();
+	         
+	         if(vis[p.v]){
+	             continue;
+	         }
+	         vis[p.v]=true;
+	         if(p.av!=-1){
+	         System.out.println("["+p.v+"-"+p.av+"@"+p.wt+"]");
+	         }
+	         for(Node e:adj.get(p.v)){
+	             if(!vis[e.val]){
+	                 pq.add(new Pair(e.val,p.v,e.weight));
+	             }
+	         }
+	     }
+	
+	
+	
+	
+	}
+	
+
 
 //------------------------------------------------------------------------------------------------------------------------------------------------
 

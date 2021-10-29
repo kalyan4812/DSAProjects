@@ -49,14 +49,17 @@ public class A7_SumOfAllSubMatrixs {
 
 			}
 		}
-
+		
+		
 		int sum = 0;
 		for (int xi = 0; xi < n; xi++) {
 			for (int yi = 0; yi < m; yi++) {
 				for (int xj = 0; xj < n; xj++) {
 					for (int yj = 0; yj < m; yj++) {
+						
 						sum += dp[xj][yj] - ((xi >= 1) ? dp[xi - 1][yj] : 0) - ((yi >= 1) ? dp[xj][yi - 1] : 0)
 								+ ((xi >= 1 && yi >= 1) ? dp[xi - 1][yi - 1] : 0);
+						
 					}
 				}
 			}

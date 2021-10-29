@@ -23,9 +23,13 @@ public class C4_RottenOranges { // BFS.
 
 		timeToGetRotten(a, r, c);
 
+		int b[][] = { { 0, 0, 0, 1 }, { 2, 1, 1, 1 }, { 2, 0, 2, 0 }, { 1, 1, 0, 2 } };
+
+		System.out.println(orangesRotting(b));
+
 	}
 
-	//O(m*N*4) ,O(n*m)-space.
+	// O(m*N*4) ,O(n*m)-space.
 	private static void timeToGetRotten(int[][] a, int r, int c) {
 
 		int freshorange = 0;
@@ -94,5 +98,89 @@ public class C4_RottenOranges { // BFS.
 			this.x = x;
 			this.y = y;
 		}
+
 	}
+//---------------------------------------------------other way-----------------------------------------
+
+	public static int orangesRotting(int[][] a) {
+
+		int n = a.length;
+		int m = a[0].length;
+
+		boolean hasOne = false;
+
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+
+				if (a[i][j] == 1) {
+					hasOne = true;
+					break;
+				}
+
+			}
+		}
+
+		if (!hasOne) {
+			return 0;
+		}
+
+		Queue<Pairs> q = new LinkedList<>();
+
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				if (a[i][j] == 2) {
+					q.add(new Pairs(i, j, 0));
+
+				}
+
+			}
+		}
+		int lev = -1;
+		while (!q.isEmpty()) {
+			Pairs p = q.poll();
+			int i = p.i;
+			int j = p.j;
+			lev = p.lev;
+
+			for (int d = 0; d < 4; d++) {
+				int rx = i + x[d];
+				int cy = j + y[d];
+
+				if (rx >= 0 && cy >= 0 && rx < n && cy < m && a[rx][cy] == 1) {
+					q.add(new Pairs(rx, cy, p.lev + 1));
+					a[rx][cy] = 2;
+				}
+
+			}
+
+		}
+		// there is no need of vis array,since we are setting fresh which got rotten to
+		// 2.
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+
+				if (a[i][j] == 1) {
+					return -1;
+				}
+
+			}
+		}
+
+		return lev;
+
+	}
+
+	static int x[] = { -1, 0, 0, 1 };
+	static int y[] = { 0, -1, 1, 0 };
+
+	static class Pairs {
+		int i, j, lev;
+
+		Pairs(int i, int j, int lev) {
+			this.i = i;
+			this.j = j;
+			this.lev = lev;
+		}
+	}
+
 }

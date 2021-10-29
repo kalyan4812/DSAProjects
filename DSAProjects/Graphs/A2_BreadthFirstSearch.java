@@ -18,14 +18,14 @@ public class A2_BreadthFirstSearch {
 	private static void bfsTraversal(ArrayList<ArrayList<Integer>> adj, int size, int s) {
 
 		boolean visited[] = new boolean[size + 1];
-		Queue<Integer> q = new LinkedList<>();
+		Queue<Integer> q = new LinkedList<>(); // push,pop-O(1).
 		q.add(s);
 		visited[s] = true;
 
 		while (!q.isEmpty()) {
 			int u = q.poll();
 			System.out.print(u + " ");
-			for (int k : adj.get(u)) {
+			for (int k : adj.get(u)) {  // O(e).
 				if (!visited[k]) {
 					visited[k] = true;
 					q.add(k);

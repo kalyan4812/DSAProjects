@@ -19,7 +19,11 @@ public class C6_BipartiteGraph {
 		System.out.println(b);
 
 		boolean k = checkBipartiteUsingDfs(adj, 4);
-		System.out.print(k);
+		System.out.println(k);
+		
+		
+		boolean c = checkBipartiteUsingBfsOtherWay(adj, 4);
+		System.out.println(k);
 
 	}
 //-------------------------------------------------------DFS APPROACH------------------------------------------
@@ -102,7 +106,80 @@ public class C6_BipartiteGraph {
 		}
 		return true;
 	}
+	
+	
+	
+	
+//------------------------------------other approach--------------------------------------------------	
+	
+	// the actual defination of bipartite is ,if we can divide vertices of graph into two mutually exclusive
+   // that is no common elements between the sets and all edges are cross i.e form set1 to set2.
+	
+	 // normal graph without cycle is bipartite.
+	// if graph has even length cycle it is bipartite.
+   // if graph has odd length cycle it is not bipartite.
+	
+	// if there is even length cycle,the node which gets visited twice in a cycle will be on the same level.
+	
+	
+	
+	
+	static class Pair{
+	       int v, lev;
+	       Pair(int v,int lev){
+	           this.lev=lev;
+	           this.v=v;
+	       }
+	}
+	private static boolean checkBipartiteUsingBfsOtherWay(ArrayList<ArrayList<Integer>> adj, int vtces) {	
+	 int vis[]=new int[vtces];
+     Arrays.fill(vis,-1);
+     boolean flag=true;
+     for(int i=0;i<vtces;i++){
+         if(vis[i]==-1){
+             boolean x=check(adj,vis,i,0);
+             if(!x){
+                 flag=false;
+                 break;
+             }
+         }
+     }
+     
+     return flag;
+     
+  }
+  
+  
+  public static boolean check(ArrayList<ArrayList<Integer>> adj,int vis[],int s,int lev){
+      Queue<Pair> q=new LinkedList<>();
+      q.add(new Pair(s,lev));
+      
+      
+      while(!q.isEmpty()){
+          Pair p=q.poll();
+          if(vis[p.v]!=-1){
+              if(vis[p.v]!=p.lev){
+                  return false;
+              }
+          }
+          
+          vis[p.v]=p.lev;
+          
+          for(int e:adj.get(p.v)){
+              if(vis[e]==-1){
+                  q.add(new Pair(e,p.lev+1));
+              }
+          }
+      }
+      
+      return true;
+      
+      
+  }
+  
 
+	
+//-----------------------------------------------------------------------------------------------------
 	private static ArrayList<ArrayList<Integer>> setUpGraph() {
 		int vertices = 4;
 
