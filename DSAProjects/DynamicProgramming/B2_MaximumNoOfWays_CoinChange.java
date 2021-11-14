@@ -20,6 +20,32 @@ public class B2_MaximumNoOfWays_CoinChange {
 		System.out.println(c);
 	}
 
+	// it also gives distinct permutations.
+	static int fun(int a[], int n, int amt) {
+
+		if (n == 0 && amt == 0) {
+			return 1;
+		}
+
+		if (n == 0) {
+			return 0;
+		}
+
+		if (amt < 0) {
+			return 0;
+		}
+
+		int p = a[n - 1];
+
+		int c1 = fun(a, n, amt - p);
+		int c2 = fun(a, n - 1, amt);
+
+		return c1 + c2;
+
+	}
+
+	
+	// here permuatation is not possible,because we are considering all coins[i-1],befor coins[i].
 	private static int tabulationSol2(int[] coin, int n, int sum) {
 		int dp[] = new int[sum + 1];
 		dp[0] = 1;
@@ -49,9 +75,10 @@ public class B2_MaximumNoOfWays_CoinChange {
 
 			}
 		}
+		
 		return dp[sum];
 	}
- 
+
 	private static int tabulationSol(int[] a, int n, int sum) {
 		int dp[][] = new int[n + 1][sum + 1];
 

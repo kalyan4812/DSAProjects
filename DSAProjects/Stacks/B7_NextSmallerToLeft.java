@@ -6,7 +6,7 @@ import java.util.Stack;
 
 public class B7_NextSmallerToLeft {
 	public static void main(String... strings) {
-		int a[] = { 1, 3, 2, 4 };
+		int a[] = { 11,4,24,32,32 };
 		fun(a);
 	}
 

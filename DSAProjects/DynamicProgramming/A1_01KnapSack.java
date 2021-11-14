@@ -17,7 +17,7 @@ public class A1_01KnapSack {
 		int a = recursiveSol(wt, val, cap, wt.length);
 		System.out.println(a);
 
-		db = new int[cap + 1][wt.length + 1];
+		db = new int[cap + 1][wt.length + 1]; 
 		for (int[] row : db) {
 			Arrays.fill(row, -1);
 		}

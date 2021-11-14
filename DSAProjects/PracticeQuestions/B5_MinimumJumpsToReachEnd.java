@@ -21,6 +21,18 @@ public class B5_MinimumJumpsToReachEnd {
 
 		int b = dpSol2(arr, n);
 		System.out.println(b);
+		
+		
+		fun(30);
+		System.out.println("count :"+count);
+	}
+	static int count=0;
+	static int fun(int n) {
+		count++;
+		if(n==2) {
+			return 2;
+		}
+		return n+fun(n-2);
 	}
 
 	private static int go2(int[] a, int n) {

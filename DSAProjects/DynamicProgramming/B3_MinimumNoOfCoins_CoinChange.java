@@ -1,5 +1,7 @@
 package DynamicProgramming;
 
+import java.util.Arrays;
+
 public class B3_MinimumNoOfCoins_CoinChange {
 	public static void main(String... strings) {
 
@@ -11,6 +13,45 @@ public class B3_MinimumNoOfCoins_CoinChange {
 
 		int b = tabulationSol(coin, coin.length, sum);
 		System.out.println(b);
+		
+		int k=recursiveSol(coin,coin.length,sum);
+		System.out.println(k);
+		
+		
+		int z= tabulationSol2(coin, coin.length, sum);
+		System.out.println(z);
+	}
+
+	private static int tabulationSol2(int[] a, int n, int sum) {
+		
+		int dp[]=new int[sum+1];
+		Arrays.fill(dp,Integer.MAX_VALUE);
+		dp[0]=0;
+		
+		for(int i=1;i<=sum;i++) {
+			for(int j=0;j<n;j++) {
+				if(i>=a[j])
+				dp[i]=Math.min(dp[i], 1+dp[i-a[j]]);
+			}
+		}
+		
+		return dp[sum];
+	}
+
+	private static int recursiveSol(int[] a, int n, int sum) {
+		
+		if(sum==0) {
+			return 0;
+		}
+		
+		int ans=Integer.MAX_VALUE;
+		
+		for(int i=0;i<n;i++) {
+			if(sum>=a[i])
+			ans=Math.min(ans, 1+recursiveSol(a,n,sum-a[i]));
+		}
+		
+		return ans;
 	}
 
 	private static int tabulationSol(int[] a, int n, int sum) {
