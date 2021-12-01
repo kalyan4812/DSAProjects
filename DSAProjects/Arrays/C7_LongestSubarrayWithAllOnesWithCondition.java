@@ -19,7 +19,7 @@ public class C7_LongestSubarrayWithAllOnesWithCondition {
 				
 			}
 			if(numofzero>k) {
-				if(a[e]==0) {
+				if(a[s]==0) {
 					numofzero--;
 				}
 				s++;

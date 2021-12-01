@@ -15,6 +15,9 @@ public class B8_AllocateMinimumNoOfPages {
 		// note array can be unsorted also then also you can apply binary search.
 		int p = fun(a, k);
 		System.out.println(p);
+		
+		
+		
 	}
 
 	// O(nlogn)

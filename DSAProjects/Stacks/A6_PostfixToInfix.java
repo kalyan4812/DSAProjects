@@ -7,8 +7,13 @@ public class A6_PostfixToInfix {
 
 		String s1 = "234*+";
 		String s2 = "abcd^e-fgh*+^*+i-";
+		String s3="38+2*9-2-";
+		
+		String s4="72*32+";
 		System.out.println(convert(s1));
 		System.out.println(convert(s2));
+		System.out.println(convert(s3));
+		System.out.println(convert(s4));
 		//a+b*(c^d-e)^(f+g*h)-i
 
 	}

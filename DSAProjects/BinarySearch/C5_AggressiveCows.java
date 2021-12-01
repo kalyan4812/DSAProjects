@@ -11,6 +11,9 @@ public class C5_AggressiveCows {
 
 		int k = fun(a, cows);
 		System.out.println(k);
+		
+		
+		
 	}
 
 	// O(nlogn)

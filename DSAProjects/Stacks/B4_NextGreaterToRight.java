@@ -7,7 +7,7 @@ import java.util.Stack;
 public class B4_NextGreaterToRight {
 
 	public static void main(String... strings) {
-		int a[] = { 1, 3, 2, 4 };
+		int a[] = { 1, 3, 5,2,1,3,1 };
 		fun(a);
 	}
 
