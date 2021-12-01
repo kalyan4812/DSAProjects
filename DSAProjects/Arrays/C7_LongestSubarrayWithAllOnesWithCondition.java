@@ -18,7 +18,7 @@ public class C7_LongestSubarrayWithAllOnesWithCondition {
 				numofzero++;
 				
 			}
-			if(numofzero>k) {
+			while(numofzero>k) {
 				if(a[s]==0) {
 					numofzero--;
 				}
